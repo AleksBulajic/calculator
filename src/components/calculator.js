@@ -7,6 +7,7 @@ function Calculator() {
   const [result, setResult] = useState("");
 
   const handleMultiple = () => {
+    //? parseFloat() turn the string into a number
     const value1 = parseFloat(num1);
     const value2 = parseFloat(num2);
     //? isNaN ckecks if somethin is not a number  by puting "!" in front of the isNaN() if it is a number it will be true and if its somethign else its false
@@ -32,10 +33,9 @@ function Calculator() {
     }
   };
   const handleAdd = () => {
-    console.log("hello")
     const value1 = parseFloat(num1);
     const value2 = parseFloat(num2);
-   
+
     if (!isNaN(value1) && !isNaN(value2)) {
       setResult((value1 + value2).toString());
       console.log(result);
@@ -44,7 +44,16 @@ function Calculator() {
       console.log(result);
     }
   };
-
+  const handleSub = () => {
+    const value1 = parseFloat(num1);
+    const value2 = parseFloat(num2);
+    if (!isNaN(value1) && !isNaN(value2)) {
+      let sub = (value1 - value2).toString();
+      setResult(sub);
+    } else {
+      setResult("Invalide input");
+    }
+  };
   const handleNum1Change = (event) => {
     setNum1(event.target.value);
   };
@@ -85,7 +94,7 @@ function Calculator() {
         <button onClick={handleAdd} type="button" className="add-button">
           Add
         </button>
-        <button type="button" className="subtract-button">
+        <button onClick={handleSub} type="button" className="subtract-button">
           Subtract
         </button>
       </div>
