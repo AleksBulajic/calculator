@@ -63,7 +63,7 @@ function Calculator() {
   };
 
   return (
-    <div className="calculator container">
+    <div className="calculator">
       <form className="calculator-inpits">
         first number:{" "}
         <input
